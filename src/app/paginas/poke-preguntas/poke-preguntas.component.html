@@ -1,0 +1,44 @@
+
+
+<img  class="pokemonImagen" *ngIf="pokemon" src={{pokemon.sprites.front_default}} alt="">
+<br>
+
+<label class="enunciado" for="name">Nombre:</label>
+<br>
+<form [formGroup]="formulario" (ngSubmit)="enviar()">
+<div *ngFor="let object of lista">
+    <input type="radio" name="name" formControlName="name"  value={{object.name}}  > <label for=""> {{object.name}}</label>
+</div>
+<div *ngIf="mostrar">
+    <p class="respuestaCorrecta" *ngIf="mostrarNombre">{{respuestaNameHtml}}</p>
+    <p class="respuestaIncorrecta" *ngIf="mostrarNombre==false">{{respuestaNameHtml}}</p>
+</div>
+
+<label class="enunciado" for="tipo">Tipo:</label>
+<div *ngFor="let object of listaTipos.slice().reverse()">
+    <input type="radio" name="tipo"  value={{object.types[0].type.name}}{{object.types[1]?.type.name}} formControlName="tipo"  > <label for="">{{object.types[0].type.name}} {{object.types[1]?.type.name}}</label>
+</div>
+<div *ngIf="mostrar">
+    <p class="respuestaCorrecta" *ngIf="mostrarTipo">{{repuestaTipoHtml}}</p>
+    <p class="respuestaIncorrecta" *ngIf="mostrarTipo==false">{{repuestaTipoHtml}}</p>
+</div>
+<br>
+<label class="enunciado" for="peso">Peso - Altura:</label>
+<div *ngFor="let object of listaAltura.slice().reverse()">
+    <input type="radio" name="peso" formControlName="peso"  value={{object.weight}}-{{object.height}}   > <label for="">{{object.weight}} kg - {{object.height}} m </label>
+</div>
+<div *ngIf="mostrar">
+    <p class="respuestaCorrecta" *ngIf="mostrarAltura">{{repuestaAlturaHtml}} </p>
+    <p class="respuestaIncorrecta" *ngIf="mostrarAltura==false">{{repuestaAlturaHtml}} </p>
+</div>
+
+<br>
+
+<button mat-raised-button class="boton" *ngIf="!mostrar" type="submit" [disabled]="!formulario.valid">PokeMuestrame</button>
+<button mat-raised-button class="boton"  *ngIf="mostrar" (click)="reinicio()">Nuevo</button>
+</form>
+<br>
+
+
+
+ 

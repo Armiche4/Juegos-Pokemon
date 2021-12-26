@@ -1,0 +1,79 @@
+<div class="contenedor" >
+    
+    <div class="mimano">
+     
+         <div  *ngFor="let carta of cartasEnemigas" >
+          <div class="cardo"  id={{carta.id}}>
+            <img  src={{carta.sprites.front_default}} alt="No hay imagen">
+            <div class="container">
+              <h3>{{carta.name}} </h3>
+            
+              <p>{{carta.id}} <fa-icon  class="iconoClase" [icon]="icono"></fa-icon> </p>
+        
+           
+            
+           
+          
+              
+            </div>
+          </div>
+         
+
+
+        </div>
+    
+    </div>
+    <div class="campo" #campo>
+    <div class="vsTotal">
+    <div class="cartaCampotipo">
+    <img class="cartaCampo" *ngIf="campoCartaImagen" src={{campoCartaMia.sprites.back_default}} alt="No hay imagen">
+    <p *ngIf="campoCartaImagen" ><strong>{{campoCartaMia.id}}</strong> <fa-icon  class="iconoClase" [icon]="icono"></fa-icon> {{campoCartaMia.types[0].type.name}}{{campoCartaMia.types[1]?.type.name}}</p>
+    </div>
+     <h2 class="vs" #vs >VS</h2>
+   
+    <div class="cartaCampotipo">
+    <img  class="cartaCampo" *ngIf="campoCartaImagen" src={{campoCartaEnemiga.sprites.front_default}} alt="No hay imagen">
+    <p *ngIf="campoCartaImagen" ><strong>{{campoCartaEnemiga.id}}</strong> <fa-icon  class="iconoClase" [icon]="icono"></fa-icon> {{campoCartaEnemiga.types[0].type.name}}{{campoCartaEnemiga.types[1]?.type.name}}</p>
+       </div>
+    </div>
+     <h1>{{resultado}}</h1>
+     <p *ngIf="campoCartaImagen">{{contadorMio}}-{{contadorEnemigo}}</p>
+    </div>
+    <div class="mimano">
+     
+        <div  *ngFor="let carta of cartasMias" >
+            <div class="cardo"  id={{carta.id}} >
+              <img src={{carta.sprites.front_default}} alt="No hay imagen">
+              <div class="container">
+                <h3>{{carta.name}} </h3>
+              
+                <p >{{carta.id}}   <fa-icon  class="iconoClase" [icon]="icono"></fa-icon> </p>
+              
+        
+            
+              <button mat-raised-button class="botonAtacar" (click)="atacar(carta)" >Atacar</button>
+      
+          
+              
+            </div>
+          </div>
+      
+
+
+        </div>
+    
+    </div>
+    <div class="botonera">
+    <button mat-stroked-button class="boton" [swal]="['Reglas:', 'Gana el pokemon que mas poder tenga.
+      En el segundo turno se activan los tipos de planta, fuego y agua.     
+      Planta gana a agua, agua a fuego y fuego a planta.
+      Si se enfrentan pokemon con tipo con otro que no, gana el del tipo.
+      Si se entrentan dos del mismo tipo gana el que mas poder tenga.', 'info']" >Reglas</button>
+      
+    <button mat-stroked-button (click)="historico()" class="boton">Historico</button>
+  </div>
+    </div>
+<div class="botonera" *ngIf="mostrarHistorico"><fa-icon [icon]="iconoUsuario"></fa-icon>{{historicoVictorias}}-{{historicoDerrotas}}<fa-icon [icon]="iconoMaquina"></fa-icon></div>
+    <swal #ResultadoFinal title="{{resultadoFinal}}" icon="success"  text="{{contadorMio}}-{{contadorEnemigo}}" (confirm)="reinicio()">
+    
+    </swal>
