@@ -105,7 +105,7 @@ export class PokePreguntasComponent implements OnInit {
       this.mostrarNombre = true;
     }
     else {
-      this.respuestaNameHtml =  this.pokemon.name + " es la respuesta correcta. Tu respuesta: " + this.formulario.value;
+      this.respuestaNameHtml =  this.pokemon.name + " es la respuesta correcta. Tu respuesta: " + this.formulario.value.name;
     }
     if (this.pokemon.types[1] != undefined) {
       if (this.pokemon.types[0].type.name + this.pokemon.types[1].type.name === this.formulario.value.tipo) {
@@ -141,7 +141,7 @@ export class PokePreguntasComponent implements OnInit {
 
 
 
-    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+    this.router.navigateByUrl('/cartas', { skipLocationChange: true }).then(() => {
       this.router.navigate(["/test"]); 
   }); 
 

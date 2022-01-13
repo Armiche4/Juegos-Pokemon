@@ -1,0 +1,61 @@
+.contenedorPrincipal{
+    //background: yellow;
+
+   // background-image: url("https://cdn.shopify.com/s/files/1/1336/2769/products/il_fullxfull.1417288718_6rvs_1600x.jpg?v=1544520371");
+
+    display: inline-flex;
+    flex-wrap: wrap;
+justify-content: center;
+  
+
+}
+
+.carta{
+
+
+width: 100%;
+}
+
+    
+
+.cajaImagen{
+
+    display:flex;
+
+    padding: 5px;
+    width: 20%;
+}
+
+h4{
+text-align: center;
+
+}
+
+button{
+    border:0.5px solid black;
+    color:white;
+    background-color:#1976d2;
+    font-weight: 800 ;
+    margin: 5px;
+    padding: 15px;
+    cursor: pointer;
+
+}
+
+
+
+button:hover{
+    background-color: whitesmoke;
+    color: black;
+}
+
+
+label{
+
+    font-size: 1.25em;
+  color: black ;
+}
+.opcionesInicio{
+
+    text-align: center;
+}

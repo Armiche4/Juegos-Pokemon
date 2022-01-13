@@ -1,0 +1,52 @@
+
+<div class="contenedor">
+    <div class="opcionesInicio" *ngIf="mostrar==false">
+        <form [formGroup]="formulario" (ngSubmit)="empezar()">
+      <label class="enunciado" for=""> Numero de pokemon:</label>
+      <input type="number" formControlName="numeroPokemon">
+      <br>
+  <label class="enunciado" for="">Tamaño sopa:</label>
+  <br>
+  <input type="radio" id="pequenisimo" name="tamano" value="400" formControlName="tamano">
+  <label for="pequeno"> 400 letras</label><br>
+      <input type="radio" id="pequeno" name="tamano" value="500" formControlName="tamano" >
+  <label for="pequeno"> 500 letras</label><br>
+  <input type="radio" id="mediano" name="tamano" value="600" formControlName="tamano" >
+  <label for="mediano"> 600 letras</label><br>
+  <input type="radio" id="grande" name="tamano" value="800" formControlName="tamano">
+  <label for="grande"> 800 letras</label><br>
+  <button mat-raised-button class="boton" *ngIf="!mostrar" type="submit" [disabled]="!formulario.valid">Jugar</button>
+</form>
+     
+    </div>
+    <div class="opciones">
+      <div class="tiempo">
+    <h2 *ngIf="mostrar" >{{tiempoMinutos}}:{{tiempoSegundos}}</h2>
+  </div>
+  <div class="buscadas">
+   
+      <div  *ngFor="let palabra of palabrasEscondidasCompletas" >
+   
+    <img  class="palabra" src="{{palabra}}" alt="">
+       </div>
+      </div>
+    </div>
+  <div class="wrapper" >
+  
+      
+      <table class="default" *ngFor="let letra of sopaLetras ; let i = index">
+  
+         
+        <tr >
+            <td (click)="pulsado(i)"  [id]="i" >{{letra}}</td>
+           
+          </tr>
+         
+      
+      </table>
+    
+    </div>
+    <br>
+
+</div>
+<swal #ResultadoFinal title="VICTORIA" icon="success" text=" {{totalPalabras}} pokemon  {{tamanoLado}} letras    Tiempo {{tiempoMinutos}}:{{tiempoSegundos}} " (confirm)="reinicio()"></swal>

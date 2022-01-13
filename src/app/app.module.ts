@@ -19,13 +19,19 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { SopaletrasComponent } from './paginas/sopaletras/sopaletras.component';
+import { MemorionComponent } from './paginas/memorion/memorion.component';
+import { HomeComponent } from './paginas/home/home.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     PokePreguntasComponent,
-    PokeCartasComponent
+    PokeCartasComponent,
+    SopaletrasComponent,
+    MemorionComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

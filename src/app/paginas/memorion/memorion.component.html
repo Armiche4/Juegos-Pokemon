@@ -1,0 +1,23 @@
+<div class="opcionesInicio" *ngIf="mostrar==false">
+    <label for=""> Numero de parejas:</label>
+    <br>
+    <input type="number" [(ngModel)]="totalParejas" >
+    <br>
+    <button (click)="empezar()" >Jugar</button>
+  </div>
+  <div class="contenedorPrincipal" >
+    
+  
+  <div class="cajaImagen" *ngFor="let imagen of listaCartasBack ; let i = index">
+  
+  <img  class="carta" name={{imagen}} src={{imagen}} alt=""  (click)="pulsado(i)"  >
+  <!--img *ngIf="mostrar==false"  [attr.data-index]="i"  class="carta2" src="https://thumbs.dreamstime.com/b/playing-card-back-side-isolated-white-clipping-path-included-playing-card-back-side-isolated-white-172500899.jpg" alt=""  (click)="pulsado(i)"  -->
+  </div>
+  
+  </div>
+  
+  <h4 *ngIf="mostrar" >Intentos: {{contador}}</h4>
+  
+  <swal #ResultadoFinal title="VICTORIA" icon="success"  text="Numero de intentos {{contador}}" (confirm)="reinicio()">
+      
+  </swal>
