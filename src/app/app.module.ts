@@ -23,6 +23,9 @@ import { SopaletrasComponent } from './paginas/sopaletras/sopaletras.component';
 import { MemorionComponent } from './paginas/memorion/memorion.component';
 import { HomeComponent } from './paginas/home/home.component';
 
+  
+
+
 
 @NgModule({
   declarations: [
