@@ -41,13 +41,13 @@ nombre:any;
 
 irLogin(){
 
-  this.router.navigate(['/Juegos-Pokemon/login']);
+  this.router.navigate(['/login']);
 }
 
 
 irPerfil(){
 
-  this.router.navigate(['/Juegos-Pokemon/perfil']);
+  this.router.navigate(['/perfil']);
 }
 
 }

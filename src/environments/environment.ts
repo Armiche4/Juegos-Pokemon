@@ -13,14 +13,7 @@ export const environment = {
     messagingSenderId: '937542495158',
   },
   production: false,
-   firebaseConfig:  {
-    apiKey: "AIzaSyAiPGkDuen87YG-KR6kN0TG-yiGNEa-co8",
-    authDomain: "juegos-pokemon.firebaseapp.com",
-    projectId: "juegos-pokemon",
-    storageBucket: "juegos-pokemon.appspot.com",
-    messagingSenderId: "937542495158",
-    appId: "1:937542495158:web:4f1344c16d86aca604af17"
-  }
+
 
 };
 

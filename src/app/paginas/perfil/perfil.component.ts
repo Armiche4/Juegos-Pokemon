@@ -87,12 +87,12 @@ console.log(this.usuario);
   logout() {
     this.login.logout();
     localStorage.setItem("PokemonUsuarioLogueado","")
-    this.router.navigate(['/Juegos-Pokemon/login']);
+    this.router.navigate(['/login']);
   }
 
   irLogin(){
 
-    this.router.navigate(['/Juegos-Pokemon/login']);
+    this.router.navigate(['/login']);
   }
 
 }

@@ -1,7 +1,7 @@
 <mat-toolbar class="toolbar" role="banner" >
  
    
-        <a   rel="noopener" href="/Juegos-Pokemon/memorion" title="Home">
+        <a   rel="noopener" href="/Juegos-Pokemon/home" title="Home">
         <img
           width="40"
           alt="Logo"
@@ -21,13 +21,13 @@
             <a   rel="noopener" href="/Juegos-Pokemon/memorion" title="Memorion">
               <img   width="30" src="https://apprecs.org/ios/images/app-icons/256/4b/1108701003.jpg" alt="">
               </a>
-              <a   rel="noopener" href="/Juegos-Pokemon/records" title="Records">
-                <img   width="30" src="https://www.shareicon.net/data/256x256/2016/07/06/791653_podium_512x512.png" alt="">
-                </a>
+             
 
                 
                 <!--div *ngIf="userLogged | async  ; else sinSension"><button mat-raised-button color="warn" (click)="irPerfil()"> <img width="30" src="{{user.photoURL}}" alt=""> {{this.nombre[0]}}</button>  </div-->            
-<div *ngIf="(userLogged | async) && logeado != '' ; else sinSension"><button mat-raised-button color="warn" (click)="irPerfil()"> <!--img width="30" src="{{user.photoURL}}" alt=""--> {{this.nombre[0]}}</button>  </div>
+<div *ngIf="(userLogged | async) && logeado != '' ; else sinSension"> <a   rel="noopener" href="/Juegos-Pokemon/records" title="Records">
+  <img   width="30" src="https://www.shareicon.net/data/256x256/2016/07/06/791653_podium_512x512.png" alt="">
+  </a><button mat-raised-button color="warn" (click)="irPerfil()"> <!--img width="30" src="{{user.photoURL}}" alt=""--> {{this.nombre[0]}}</button>  </div>
 <ng-template #sinSension> <button mat-raised-button color="warn" (click)="irLogin()" > Login</button>  </ng-template>   
 
    

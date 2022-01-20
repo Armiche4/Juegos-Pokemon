@@ -31,7 +31,7 @@
   
         <label style="float: left;">Password</label>
         <input class="form-control m-2" type="password" placeholder="Password"  formControlName="passwordRegistrarse" >
-        <button  mat-raised-button color="secondary" type="submit" [disabled]="!formulario.valid"  class="botonEntrar" >Registrarse</button>
+        <button  mat-raised-button color="secondary" type="submit" [disabled]="!formularioRegistrarseform.valid"  class="botonEntrar" >Registrarse</button>
         <button  mat-raised-button (click)="formularioRegistrarse()" class="botonCambio" >Si ya tienes cuenta haz click aqui</button>
         <!--button  mat-raised-button color="warn" class="btn btn-primary btn-block m-2" type="submit" (click)="Ingresar()" [disabled]="!formulario.valid" >Registrarse</button-->
         <!--button  mat-raised-button color="warn" class="btn btn-primary btn-block m-2" (click)="IngresarGoogle()">Ingresar con Gmail</button-->

@@ -150,7 +150,7 @@ usuariosSopa= [] as Usuario[];
 
   irLogin(){
 
-    this.router.navigate(['/Juegos-Pokemon/login']);
+    this.router.navigate(['/login']);
   }
 
 }

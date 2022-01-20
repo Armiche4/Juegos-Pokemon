@@ -60,7 +60,7 @@ this.loginService.register(this.usuario.email,this.usuario.password).then(result
     localStorage.setItem("PokemonUsuarioLogueado",this.usuario.email);
     //this.limpiarCampos();
     this.formularioRegistrarseform.reset();
-    this.router.navigate(['/Juegos-Pokemon/home']);
+    this.router.navigate(['/home']);
   });
 
   }
@@ -79,7 +79,7 @@ this.loginService.register(this.usuario.email,this.usuario.password).then(result
       };
       localStorage.setItem("PokemonUsuarioLogueado",this.formulario.value.email);
       this.formulario.reset();
-      this.router.navigate(['/Juegos-Pokemon/home']);
+      this.router.navigate(['/home']);
     
     }).catch(err=>{
       console.log(err)

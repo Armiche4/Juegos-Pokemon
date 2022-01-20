@@ -67,7 +67,7 @@ import { RecordsComponent } from './paginas/records/records.component';
     MatButtonModule,
     MatDialogModule,
     SweetAlert2Module.forRoot(),
-    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebase),
     MatToolbarModule,
     MatCardModule,
     MatInputModule,
