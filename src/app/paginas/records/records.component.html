@@ -1,0 +1,53 @@
+<div class="contenedorPrincipal" *ngIf="logeado != ''">
+
+
+<div class="rank">
+<h3>Memorion 6 parejas</h3>
+
+<ul *ngFor="let usuario of usuariosMemorion">
+    <li>{{usuario.email[0]}}  {{usuario.memorion}} turnos</li>
+ 
+  </ul>
+
+</div>
+
+<div class="rank" >
+    <h3>Sopa de letras 4 plalabras 400 letras</h3>
+    
+    <ul *ngFor="let usuario of usuariosSopa">
+        <li>{{usuario.email[0]}}  {{usuario.SopaLetras}} seg</li>
+     
+      </ul>
+
+</div>
+
+<div class="rank">
+<h3>Test aciertos</h3>
+    
+<ul *ngFor="let usuario of usuariosAciertos">
+    <li>{{usuario.email[0]}}  {{usuario.testAciertos}}</li>
+ 
+  </ul>
+
+
+</div>
+<div class="rank">
+    <h3>Test fallos</h3>
+    <ul *ngFor="let usuario of usuariosfallos">
+        <li>{{usuario.email[0]}}  {{usuario.testFallos}}</li>
+     
+      </ul>
+
+
+</div>
+
+
+
+</div>
+<div class="contenedorLogin" *ngIf="logeado == ''">
+  <div>
+   <h1>Loegueate para ver tu perfil</h1>
+   
+   <button  mat-raised-button color="warn"  (click)="irLogin()">Ir al Login</button>
+</div>
+</div>

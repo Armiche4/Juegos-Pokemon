@@ -11,6 +11,12 @@ import { MemorionComponent } from './paginas/memorion/memorion.component';
 
 import { HomeComponent } from './paginas/home/home.component';
 
+import { LoginComponent } from './paginas/login/login.component';
+
+import { PerfilComponent } from './paginas/perfil/perfil.component';
+
+import { RecordsComponent } from './paginas/records/records.component';
+
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'test',
@@ -27,6 +33,15 @@ component: MemorionComponent
 },
 { path: 'home',
 component: HomeComponent
+},
+{ path: 'login',
+component: LoginComponent
+},
+{ path: 'perfil',
+component: PerfilComponent
+},
+{ path: 'records',
+component: RecordsComponent
 },
 ];
 

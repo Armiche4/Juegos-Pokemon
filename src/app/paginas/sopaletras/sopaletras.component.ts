@@ -10,6 +10,10 @@ import { FormGroup, FormControl, Validators} from '@angular/forms';
 
 import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
 
+import { Usuario } from 'src/app/interfaces/usuario';
+
+import { BaseDatosService } from 'src/app/servicios/base-datos.service';
+
 @Component({
   selector: 'app-sopaletras',
   templateUrl: './sopaletras.component.html',
@@ -54,8 +58,10 @@ formulario = new FormGroup({
   
 });
 
+logeado= {} as Usuario;
+collecionBaseDatos="Records Pokemon";
 
-  constructor(private servicio:PokeServicioService,private router:Router) {
+  constructor(private servicio:PokeServicioService,private router:Router,private baseDatos:BaseDatosService) {
 
 
    }
@@ -63,7 +69,23 @@ formulario = new FormGroup({
 
   ngOnInit(): void {
 
-
+    var users;
+ 
+    this.baseDatos.obtenerTodos(this.collecionBaseDatos).subscribe((usuariosRef) => {
+ 
+     users = usuariosRef.map(userRef => {
+        let usuario: any = userRef.payload.doc.data();
+      
+    if(usuario.email==localStorage.getItem("PokemonUsuarioLogueado")){
+      usuario['id'] = userRef.payload.doc.id;
+    this.logeado=usuario;
+      return usuario;
+    }
+    
+       
+      });
+    console.log(this.logeado);
+    })
 
   }
 
@@ -159,6 +181,14 @@ pulsado(posicion:number){
 
 if(this.aciertos==(this.posicionPalabraEscondida.length)){
   clearInterval(this.interval);
+
+  if(this.totalPalabras==4 && this.tamanoLado==400 && (this.logeado.SopaLetras==0  || this.logeado.SopaLetras!>(this.tiempoMinutos*60)+this.tiempoSegundos)){
+    this.logeado.SopaLetras=(this.tiempoMinutos*60)+this.tiempoSegundos;
+
+    this.baseDatos.actualizar(this.collecionBaseDatos,this.logeado,this.logeado.id!)
+  }
+
+
   this.deleteSwal.fire();
 }
 

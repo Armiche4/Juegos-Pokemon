@@ -6,6 +6,11 @@ import { FormGroup, FormControl, Validators} from '@angular/forms';
 
 import { Router } from '@angular/router';
 
+
+import { Usuario } from 'src/app/interfaces/usuario';
+
+import { BaseDatosService } from 'src/app/servicios/base-datos.service';
+
 @Component({
   selector: 'app-poke-preguntas',
   templateUrl: './poke-preguntas.component.html',
@@ -13,7 +18,7 @@ import { Router } from '@angular/router';
 })
 export class PokePreguntasComponent implements OnInit {
 
-  constructor(private servicio: PokeServicioService, private router:Router) { }
+  constructor(private servicio: PokeServicioService, private router:Router,private baseDatos:BaseDatosService) { }
 
   pokemon: any;
   lista: any[] = [];
@@ -35,7 +40,10 @@ export class PokePreguntasComponent implements OnInit {
     peso: new FormControl('', Validators.required),
   });
  
- 
+ repuestasCorrectas=0;
+ respuestasIncorrectas=0;
+ collecionBaseDatos="Records Pokemon";
+ logeado= {} as Usuario;
 
   ngOnInit(): void {
 
@@ -82,7 +90,23 @@ export class PokePreguntasComponent implements OnInit {
 
     }
 
-
+    var users;
+ 
+    this.baseDatos.obtenerTodos(this.collecionBaseDatos).subscribe((usuariosRef) => {
+ 
+     users = usuariosRef.map(userRef => {
+        let usuario: any = userRef.payload.doc.data();
+      
+    if(usuario.email==localStorage.getItem("PokemonUsuarioLogueado")){
+      usuario['id'] = userRef.payload.doc.id;
+    this.logeado=usuario;
+      return usuario;
+    }
+    
+       
+      });
+    console.log(this.logeado);
+    })
 
 
 
@@ -103,37 +127,55 @@ export class PokePreguntasComponent implements OnInit {
     if (this.pokemon.name === this.formulario.value.name) {
       this.respuestaNameHtml = this.pokemon.name + " es la respuesta correcta";
       this.mostrarNombre = true;
+      this.repuestasCorrectas++;
+      
     }
     else {
       this.respuestaNameHtml =  this.pokemon.name + " es la respuesta correcta. Tu respuesta: " + this.formulario.value.name;
+      this.respuestasIncorrectas++;
     }
     if (this.pokemon.types[1] != undefined) {
       if (this.pokemon.types[0].type.name + this.pokemon.types[1].type.name === this.formulario.value.tipo) {
         this.repuestaTipoHtml =  this.pokemon.types[0].type.name +" "+ this.pokemon.types[1]?.type.name + " es la respuesta correcta";
         this.mostrarTipo = true;
+        this.repuestasCorrectas++;
       }
       else {
         this.repuestaTipoHtml =  this.pokemon.types[0].type.name  +" "+ this.pokemon.types[1].type.name + " es la respuesta correcta. Tu respuesta:"  + this.formulario.value.tipo;
+        this.respuestasIncorrectas++;
       }
     }
     else {
       if (this.pokemon.types[0].type.name === this.formulario.value.tipo) {
         this.repuestaTipoHtml =  this.pokemon.types[0].type.name + " es la respuesta correcta";
         this.mostrarTipo = true;
+        this.repuestasCorrectas++;
       }
       else {
         this.repuestaTipoHtml =  this.pokemon.types[0].type.name + " es la respuesta correcta. Tu respuesta: " + this.formulario.value.tipo;
+        this.respuestasIncorrectas++;
       }
     }
     if (this.pokemon.weight+"-"+this.pokemon.height ==this.formulario.value.peso) {
       this.repuestaAlturaHtml =  this.pokemon.weight + " kg - "+ this.pokemon.height + " m es la respuesta correcta";
       this.mostrarAltura = true;
+      this.repuestasCorrectas++;
     }
     else {
       this.repuestaAlturaHtml =  this.pokemon.weight + " kg es la respuesta correcta. Tu respuesta: " + this.formulario.value.peso + " Kg";
+      this.respuestasIncorrectas++;
     }
 
     this.mostrar = true;
+ 
+
+    
+      this.logeado.testAciertos=this.logeado.testAciertos!+this.repuestasCorrectas;
+      this.logeado.testFallos=this.logeado.testFallos!+this.respuestasIncorrectas;
+    
+      this.baseDatos.actualizar(this.collecionBaseDatos,this.logeado,this.logeado.id!)
+    
+
   }
 
   reinicio(){

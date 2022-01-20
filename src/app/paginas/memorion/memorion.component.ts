@@ -7,6 +7,10 @@ import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
 
 import { Router } from '@angular/router';
 
+import { Usuario } from 'src/app/interfaces/usuario';
+
+import { BaseDatosService } from 'src/app/servicios/base-datos.service';
+
 @Component({
   selector: 'app-memorion',
   templateUrl: './memorion.component.html',
@@ -16,7 +20,7 @@ export class MemorionComponent implements OnInit {
 
   @ViewChild('ResultadoFinal') public readonly deleteSwal!: SwalComponent;
 
-  constructor(private servicio:PokeServicioService,private router: Router) { }
+  constructor(private servicio:PokeServicioService,private router: Router,private baseDatos:BaseDatosService) { }
 
   listaCartas:String[]= [];
 listaNumRandon:Number[]=[];
@@ -41,11 +45,29 @@ totalParejas=6;
 
 mostrar:boolean=false;
 
+collecionBaseDatos="Records Pokemon";
+
+logeado= {} as Usuario;
+
   ngOnInit(): void {
 
-
-
+var users;
+ 
+    this.baseDatos.obtenerTodos(this.collecionBaseDatos).subscribe((usuariosRef) => {
+ 
+     users = usuariosRef.map(userRef => {
+        let usuario: any = userRef.payload.doc.data();
+      
+    if(usuario.email==localStorage.getItem("PokemonUsuarioLogueado")){
+      usuario['id'] = userRef.payload.doc.id;
+    this.logeado=usuario;
+      return usuario;
+    }
     
+       
+      });
+    console.log(this.logeado);
+    })
   
   }
 
@@ -102,6 +124,14 @@ console.log(this.listaCartas[this.PosicionesCartasLevantadas[1]]+"")
 }
 
 if(this.CartasAcertadas.length==this.totalParejas){
+
+if(this.totalParejas==6 && (this.logeado.memorion==0  || this.logeado.memorion!>this.contador)){
+  this.logeado.memorion=this.contador;
+
+
+  this.baseDatos.actualizar(this.collecionBaseDatos,this.logeado,this.logeado.id!)
+}
+
 
   this.deleteSwal.fire();
 }

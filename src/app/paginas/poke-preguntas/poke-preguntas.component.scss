@@ -40,3 +40,31 @@ text-decoration: underline;
         font-weight: 600;
         cursor: pointer;
       }
+
+
+      .contenedorPrincipal{
+
+text-align: center;
+
+      }    
+      
+      .resultados{
+
+      display: flex;
+
+      justify-content: center;
+
+      }
+
+      .aciertos{
+        padding: 5px;
+        font-size: 1.5em;
+        color:chartreuse
+      }
+
+      .fallos{
+padding: 5px;
+font-size: 1.5em;
+
+        color: crimson;
+      }

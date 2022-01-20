@@ -1,0 +1,46 @@
+
+
+<div class="contenedorPrincipal" *ngIf="logeado != ''">
+<div *ngIf="usuario" class="rank">
+<h2 *ngIf="usuario.displayName!=null ; else sinNombre" > Hola {{usuario.displayName}}</h2>
+<ng-template #sinNombre>  <h2 > Hola {{usuario.email}}</h2> </ng-template>   
+<p>Cuenta creada en {{usuario.metadata.creationTime}}</p>
+
+    <button mat-raised-button color="warn" (click)="logout()">Logout</button>
+      
+</div>
+
+<div class="rank">
+<h3>Records</h3>
+<div *ngIf="records.memorion !=0" >
+    
+     <p >Memorion de 6 parejas <strong>{{records.memorion}}</strong>  intentos</p>
+
+    </div>
+    <div *ngIf="records.SopaLetras !=0" >
+    
+        <p >Sopa de letras 4 palabras 400 letras <strong> {{records.SopaLetras}}</strong> segundos</p>
+           
+           </div>
+
+    <div>
+    
+        <p >Aciertos en test pokemon <strong>{{records.testAciertos}}</strong> </p>
+
+        <p >Fallos en test pokemon <strong>{{records.testFallos}} </strong></p>
+           
+           </div>
+
+        </div>
+    </div>
+
+
+        <div class="contenedorPrincipal" *ngIf="logeado == ''">
+           <div>
+            <h1>Loegueate para ver tu perfil</h1>
+            
+            <button  mat-raised-button color="warn"  (click)="irLogin()">Ir al Login</button>
+        </div>
+        </div>
+
+    

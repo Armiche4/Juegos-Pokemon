@@ -1,0 +1,70 @@
+.contenedorPrincipal{
+
+display: flex;
+
+justify-content: space-around;
+
+
+flex-wrap: wrap;
+padding: 15px;
+}
+
+
+.rank{
+
+
+    h3{
+
+        color: red;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+        size: 2em;
+        }
+
+        padding: 15px;
+       margin: 5px;
+
+       display: flex;
+       flex-direction:column;
+
+       text-align: center;
+
+       
+       
+       width: 320px;
+       padding: 20px;
+       background: #fff;
+       border-radius: 5px;
+       border-top: 5px solid #ff656c;
+       border-bottom: 5px solid #ff656c;
+       margin: 0 auto;
+
+       
+        
+}
+
+li{
+
+    list-style-image:url("../../../assets/medalla.png");
+    list-style-position:inside;
+   // padding: 20px;
+   //top: 10px;
+}
+
+
+.contenedorLogin{
+
+    display: flex;
+    
+    //justify-content: space-around;
+     
+    
+    flex-wrap: wrap;
+    padding: 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 50vh;
+
+    }
