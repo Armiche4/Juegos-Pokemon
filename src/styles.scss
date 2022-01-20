@@ -2,3 +2,14 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+body{
+    place-items: center;
+//height: 100vh;
+//background: rgb(219,219,233);
+//background: linear-gradient(90deg, rgba(219,219,233,1) 0%, rgba(255,255,255,1) 30%, rgba(221,220,231,1) 66%, rgba(172,177,179,1) 95%);
+
+background: rgb(232,232,246);
+background: linear-gradient(90deg, rgba(232,232,246,1) 3%, rgba(255,255,255,1) 35%, rgba(223,224,226,1) 72%, rgba(184,185,186,1) 93%);
+margin-top:45px;
+}
