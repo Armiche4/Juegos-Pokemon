@@ -39,6 +39,7 @@ import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { PerfilComponent } from './paginas/perfil/perfil.component';
 import { RecordsComponent } from './paginas/records/records.component';
+import { OtroPerfilComponent } from './paginas/otro-perfil/otro-perfil.component';
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import { RecordsComponent } from './paginas/records/records.component';
     NavbarComponent,
     PerfilComponent,
     RecordsComponent,
+    OtroPerfilComponent,
    
   ],
   imports: [

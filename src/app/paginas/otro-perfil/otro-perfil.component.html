@@ -1,0 +1,24 @@
+<div class="rank" *ngIf="usuario">
+    <h2><strong>{{usuario.email}}</strong></h2>
+    <div>
+        
+         <p>  <fa-icon  class="iconoClase" [icon]="iconoEstrella"></fa-icon>  Memorion de 6 parejas <strong>{{usuario.memorion}}</strong>  intentos</p>
+    
+        </div>
+        <div>
+        
+            <p > <fa-icon  class="iconoClase" [icon]="iconoEstrella"></fa-icon>Sopa de letras 4 palabras 400 letras <strong> {{usuario.SopaLetras}}</strong> segundos</p>
+               
+               </div>
+    
+        <div>
+        
+            <p > <fa-icon  class="iconoClase" [icon]="iconoEstrella"></fa-icon>Aciertos en test pokemon <strong>{{usuario.testAciertos}}</strong> </p>
+    
+            <p > <fa-icon  class="iconoClase" [icon]="iconoEstrella"></fa-icon>Fallos en test pokemon <strong>{{usuario.testFallos}} </strong></p>
+               
+               </div>
+    
+            </div>
+      
+   

@@ -17,6 +17,8 @@ import { PerfilComponent } from './paginas/perfil/perfil.component';
 
 import { RecordsComponent } from './paginas/records/records.component';
 
+import { OtroPerfilComponent } from './paginas/otro-perfil/otro-perfil.component';
+
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'test',
@@ -43,6 +45,9 @@ component: PerfilComponent
 { path: 'records',
 component: RecordsComponent
 },
+{ path: ':id', 
+component: OtroPerfilComponent 
+}
 ];
 
 @NgModule({

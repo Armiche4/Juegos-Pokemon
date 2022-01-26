@@ -153,4 +153,9 @@ usuariosSopa= [] as Usuario[];
     this.router.navigate(['/login']);
   }
 
+
+  public getId(id:string) {
+    this.router.navigate([id]);
+  }
+
 }
