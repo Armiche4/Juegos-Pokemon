@@ -5,7 +5,7 @@
 <h3>Memorion 6 parejas</h3>
 
 <ul *ngFor="let usuario of usuariosMemorion">
-    <li> <a href="/{{usuario.id}}">{{usuario.email[0]}} </a>  {{usuario.memorion}} turnos</li>
+    <li> <a href="/Juegos-Pokemon/{{usuario.id}}">{{usuario.email[0]}} </a>  {{usuario.memorion}} turnos</li>
  
   </ul>
 
@@ -15,7 +15,7 @@
     <h3>Sopa de letras 4 plalabras 400 letras</h3>
     
     <ul *ngFor="let usuario of usuariosSopa">
-        <li> <a href="/{{usuario.id}}">{{usuario.email[0]}} </a> {{usuario.SopaLetras}} seg</li>
+        <li> <a href="/Juegos-Pokemon/{{usuario.id}}">{{usuario.email[0]}} </a> {{usuario.SopaLetras}} seg</li>
      
       </ul>
 
@@ -25,7 +25,7 @@
 <h3>Test aciertos</h3>
     
 <ul *ngFor="let usuario of usuariosAciertos">
-    <li> <a href="/{{usuario.id}}">{{usuario.email[0]}} </a> {{usuario.testAciertos}}</li>
+    <li> <a href="/Juegos-Pokemon/{{usuario.id}}">{{usuario.email[0]}} </a> {{usuario.testAciertos}}</li>
  
   </ul>
 
@@ -34,7 +34,7 @@
 <div class="rank">
     <h3>Test fallos</h3>
     <ul *ngFor="let usuario of usuariosfallos">
-        <li> <a href="/{{usuario.id}}">{{usuario.email[0]}}</a>  {{usuario.testFallos}}   </li>
+        <li> <a href="/Juegos-Pokemon/{{usuario.id}}">{{usuario.email[0]}}</a>  {{usuario.testFallos}}   </li>
      
       </ul>
 

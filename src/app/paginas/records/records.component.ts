@@ -154,8 +154,5 @@ usuariosSopa= [] as Usuario[];
   }
 
 
-  public getId(id:string) {
-    this.router.navigate([id]);
-  }
 
 }
