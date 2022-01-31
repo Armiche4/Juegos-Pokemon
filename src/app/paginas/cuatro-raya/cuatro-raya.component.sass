@@ -1,0 +1,100 @@
+$offwhite: darken(white, 10%)
+$darkblue: rgb(50,50,60)
+
+.wrapper 
+  display: grid
+  grid-template-columns: 1fr 1fr 1fr,1fr 1fr 1fr 1fr 1fr 1fr 1fr
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr
+  gap: 2px 2px
+  grid-template-areas: ". . . . . . . . ." ". . . . . . . . ." ". . . . . . . . ." ". . . . . . . . ." ". . . . . . . . ." ". . . . . . . . ."
+  padding: 40px 
+  margin-left:100px
+  margin-right: 100px
+
+.box
+    border: solid blue 1px
+    background-color: blue
+    text-align: center
+    -webkit-box-shadow: 11px 8px 18px 2px rgba(0,0,0,0.72)
+    box-shadow: 11px 8px 18px 2px rgba(0,0,0,0.72)
+    
+.fichas
+   width: 50% 
+
+.imagenBolas
+
+  display: flex
+  flex-direction: row
+  justify-content: space-around
+  padding: 50px
+
+.PokeballGrande
+  width: 50%
+
+.PokeballPequena
+  width: 200%
+
+
+
+.resultados
+
+  display: flex
+  justify-content: center
+  
+.itemBolas
+  text-align: center
+  
+
+.aciertos
+        padding: 5px
+        font-size: 1.5em
+        color:green
+      
+.center
+  display: flex
+  justify-content: center
+
+button
+  background-color: transparent
+  color: darken($darkblue, 10%)
+  
+  &:hover
+    background-color: transparent
+    box-shadow: none
+    color: $offwhite
+  
+  &::before
+    content: ""
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    //border: 3px solid darken($darkblue, 10%)
+    transition: opacity 0.3s, border 0.3s
+
+  &:hover::before
+    opacity: 0
+  
+  &::after
+    content: ""
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background-color: transparent
+    border: 3px solid $offwhite
+    opacity: 0
+    z-index: -1
+    transform: scaleX(1.1) scaleY(1.3)
+    transition: transform 0.3s, opacity 0.3s
+  
+  &:hover::after
+    opacity: 1
+    transform: scaleX(1) scaleY(1)  
+   
+
+
+
+ 

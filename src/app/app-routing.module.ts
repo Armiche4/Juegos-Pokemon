@@ -19,6 +19,8 @@ import { RecordsComponent } from './paginas/records/records.component';
 
 import { OtroPerfilComponent } from './paginas/otro-perfil/otro-perfil.component';
 
+import { CuatroRayaComponent } from './paginas/cuatro-raya/cuatro-raya.component';
+
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'test',
@@ -42,12 +44,17 @@ component: LoginComponent
 { path: 'perfil',
 component: PerfilComponent
 },
+
+{ path: 'CuatroEnRaya', 
+component: CuatroRayaComponent 
+},
 { path: 'records',
 component: RecordsComponent
 },
 { path: ':id', 
 component: OtroPerfilComponent 
 }
+
 ];
 
 @NgModule({

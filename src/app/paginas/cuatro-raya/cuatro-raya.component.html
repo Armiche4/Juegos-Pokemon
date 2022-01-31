@@ -1,0 +1,28 @@
+<div  *ngIf="logeado.CuatroRaya" class="resultados"><p class="aciertos"> Victorias {{logeado.CuatroRaya}}  </p>    </div> 
+<div class="wrapper" >
+      <div *ngFor="let item of cantidadCajas; let i = index">
+     <div class="box"><img class="fichas" src="https://img.icons8.com/emoji/256/white-circle-emoji.png" (click)="ponerficha(item)"  id={{item}}  alt=""> </div>
+ </div>
+
+   </div>
+
+
+
+   <div  *ngIf="logeado.CuatroRaya" class="resultados">   <button mat-raised-button color="warn"    (click)="mostrarBolas()"> Elegir bola</button> </div> 
+
+   <div *ngIf="ensenar"  class="imagenBolas" >
+   
+    <div class="itemBolas"> <img   class="PokeballGrande"  src="https://aux3.iconspalace.com/uploads/645019229296460368.png"  alt=""> <p><strong>Pokeball</strong> </p> <p>0 Victoria</p><button mat-raised-button color="Primary"   (click)="elegirBola(1)">Seleccionar</button></div> 
+    <div class="itemBolas">  <img  class="PokeballGrande" src="https://aux.iconspalace.com/uploads/21241959701031495453.png"  alt=""> <p><strong>Superball</strong></p> <p>1 Victoria</p> <button mat-raised-button color="Primary"  *ngIf="logeado.CuatroRaya!>0"  (click)="elegirBola(2)" > Seleccionar</button></div> 
+    <div class="itemBolas">   <img class="PokeballGrande" src="https://aux.iconspalace.com/uploads/1239819779318352436.png"  alt=""> <p><strong>Ultraball</strong></p> <p>5 Victorias</p> <button mat-raised-button color="Primary" *ngIf="logeado.CuatroRaya!>4"   (click)="elegirBola(3)" >Seleccionar</button></div> 
+    <div class="itemBolas">   <img class="PokeballGrande"  src="https://aux.iconspalace.com/uploads/1135170936575256273.png"  alt=""> <p><strong>Premierball</strong></p>  <p>10 Victorias</p><button mat-raised-button color="Primary"   *ngIf="logeado.CuatroRaya!>9"  (click)="elegirBola(4)" >Seleccionar</button></div> 
+      <div class="itemBolas">   <img  class="PokeballGrande" src="https://aux.iconspalace.com/uploads/1256021885372237969.png"  alt=""> <p><strong>Masterball</strong></p> <p>20 Victorias</p> <button mat-raised-button color="Primary"   *ngIf="logeado.CuatroRaya!>10"  (click)="elegirBola(5)" >Seleccionar</button></div> 
+  
+
+
+   </div>
+
+
+
+
+   <swal #ResultadoFinal title="VICTORIA" icon="success"  text="¡¡Has ganado!!" (confirm)="reinicio()">

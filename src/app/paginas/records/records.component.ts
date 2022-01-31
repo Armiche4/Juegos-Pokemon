@@ -34,6 +34,9 @@ usuariosMemorion= [] as Usuario[];
 
 usuariosSopa= [] as Usuario[];
 
+usuariosCuatroRaya= [] as Usuario[];
+
+
   ngOnInit(): void {
     var usuarios= [] as Usuario[];
     this.logeado=localStorage.getItem("PokemonUsuarioLogueado")!;
@@ -133,6 +136,31 @@ usuariosSopa= [] as Usuario[];
         }
     
         if (obj1.SopaLetras! < obj2.SopaLetras!) {
+        
+            return -1;
+        }
+    
+        return 0;
+    });
+      
+   
+    });
+
+    this.baseDatos.obtenerTodos(this.collecionBaseDatos).subscribe((usuariosRef) => {
+      console.log("usuariosRef: ", usuariosRef);
+      usuarios = usuariosRef.map(userRef => {
+        let usuario: any = userRef.payload.doc.data();
+       usuario.email=usuario.email.split("@");
+       return usuario;
+      });
+      this.usuariosCuatroRaya=usuarios.filter(resultado=>resultado.CuatroRaya!>0)
+      this.usuariosCuatroRaya.sort((obj1, obj2) => {
+        if (obj1.CuatroRaya! < obj2.CuatroRaya!) {
+          
+            return 1;
+        }
+    
+        if (obj1.CuatroRaya! > obj2.CuatroRaya!) {
         
             return -1;
         }

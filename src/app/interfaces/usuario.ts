@@ -7,5 +7,6 @@ export interface Usuario {
     testFallos?:number;
     testAciertos?:number;
     SopaLetras?:number; 
+    CuatroRaya?:number; 
    
 }

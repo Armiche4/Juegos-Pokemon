@@ -86,6 +86,7 @@ console.log(this.usuario);
 
   logout() {
     this.login.logout();
+    localStorage.setItem("PokeBolaPokeJuego","");
     localStorage.setItem("PokemonUsuarioLogueado","")
     this.router.navigate(['/login']);
   }

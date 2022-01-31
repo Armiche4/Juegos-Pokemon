@@ -40,6 +40,7 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { PerfilComponent } from './paginas/perfil/perfil.component';
 import { RecordsComponent } from './paginas/records/records.component';
 import { OtroPerfilComponent } from './paginas/otro-perfil/otro-perfil.component';
+import { CuatroRayaComponent } from './paginas/cuatro-raya/cuatro-raya.component';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import { OtroPerfilComponent } from './paginas/otro-perfil/otro-perfil.component
     PerfilComponent,
     RecordsComponent,
     OtroPerfilComponent,
+    CuatroRayaComponent,
    
   ],
   imports: [
